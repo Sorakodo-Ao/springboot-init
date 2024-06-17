@@ -1,45 +1,75 @@
-server:
-  port: 9090
 spring:
-  application:
-    name: springboot-init
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #    TODO 数据库
-    url: jdbc:mysql://localhost:3306/My_DB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
-    username: root
-    password: 2003
-mybatis-plus:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.caiwei.object.entities
-  configuration:
-    # 控制台打印sql日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    #开启驼峰
-    map-underscore-to-camel-case: true
+  profiles:
+    active: test
 
 
-# springdoc-openapi项目配置
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-    # 排序方式为首字母
-    tags-sorter: alpha
-    # 使用增强order属性进行排序，或者不设置该参数( @ApiOperationSupport(order = n)直接生效)
-    operations-sorter: order
-  api-docs:
-    path: /v3/api-docs
-  group-configs:
-    - group: 'default'
-      paths-to-match: '/**'
-      # controller所在包
-      packages-to-scan: com.caiwei.object.controller
-
-# knife4j的增强配置，不需要增强可以不配
-knife4j:
-  enable: true
-  setting:
-    language: zh_cn
-
+#TODO 取消注释
+#server:
+#  port: 9090
+#
+#
+#spring:
+#  application:
+#    name: springboot-init
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    #    TODO 数据库
+#    url: jdbc:mysql://localhost:3306/My_DB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+#    username: ？？？
+#    password: ？？？
+#  servlet:
+#    multipart:
+#      max-file-size: 20MB # 单个文件的最大大小
+#      max-request-size: 50MB # 整个请求的最大大小
+#
+#
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.caiwei.object.entities
+#  configuration:
+#    # 控制台打印sql日志
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    #开启驼峰
+#    map-underscore-to-camel-case: false
+#
+#
+## springdoc-openapi项目配置
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    # 排序方式为首字母
+#    tags-sorter: alpha
+#    # 使用增强order属性进行排序，或者不设置该参数( @ApiOperationSupport(order = n)直接生效)
+#    operations-sorter: order
+#  api-docs:
+#    path: /v3/api-docs
+#  group-configs:
+#    - group: 'default'
+#      paths-to-match: '/**'
+#      # controller所在包
+#      packages-to-scan: com.caiwei.object.controller
+#
+## knife4j的增强配置，不需要增强可以不配
+#knife4j:
+#  enable: true
+#  setting:
+#    language: zh_cn
+#
+##jwt(token)配置
+#jwt:
+#  #签名秘钥
+#  secretKey: springboot-init
+#  #过期时间(单位 day)
+#  expiretTime: 7
+#  #设置前端传递过来的令牌名称
+#  tokenName: token
+#
+## TODO aliyun oss 存储服务配置
+#aliyun:
+#  oss:
+#    endpoint: ？？？？？ #外网访问的地域节点
+#    accessKeyId: ？？？？？ #访问阿里云api的秘钥id
+#    accessKeySecret: ？？？？？ #访问阿里云api的秘钥
+#    buckekName: ？？？？？ #bucket-name
 

@@ -21,6 +21,6 @@ public enum ResultEnum {
 
     SUCCESS("200", "success");
 
-    private String text;
-    private String value;
+    private String code;
+    private String message;
 }

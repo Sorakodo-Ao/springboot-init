@@ -13,7 +13,7 @@ public class GlobalException {
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public Result handleException(Exception e) {
-        log.info("error_message = " + e.getMessage());
+        log.info("global_error_message = " + e.getMessage());
         return Result.error(e.getMessage());
     }
 

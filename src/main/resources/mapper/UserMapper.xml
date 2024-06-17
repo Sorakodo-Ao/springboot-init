@@ -15,5 +15,15 @@
         <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
         <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
+    <select id="selectByCondition" resultType="com.caiwei.object.entities.model.User">
+        select * from user
+                 where email = #{email}
+                        or phoneNumber = #{phoneNumber}
+    </select>
+    <select id="loginCheck" resultType="com.caiwei.object.entities.model.User">
+        select * from user
+        where account = #{account}
+           and password = #{password}
+    </select>
 
 </mapper>
